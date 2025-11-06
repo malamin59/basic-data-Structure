@@ -47,7 +47,7 @@ class Linklist {
 
   insert(index, value) {
     if (index < 0 || index > this.length) {
-      console.error("index out of bound: muri khal");
+      console.error("index out of bound:  muri khal");
       return undefined;
     }
     // if the insert if in start of link list
@@ -59,14 +59,20 @@ class Linklist {
       return this.append(value);
     }
 
+    const leadingNode = this._travesToIndex(index - 1);
+    console.log(leadingNode);
+  }
+
+  //   Heal per method
+  _travesToIndex(index) {
     let count = 0;
     let leadingNode = this.head;
 
-    while (count !== index - 1) {
+    while (count !== index) {
       leadingNode = leadingNode.next;
       count++;
     }
-    console.log(leadingNode)
+    console.log(leadingNode);
   }
 
   remove() {}
@@ -88,10 +94,10 @@ linklist.append(1);
 linklist.append(2);
 linklist.append(3);
 
-linklist.prepend(10);//2
-linklist.prepend(20);//1
-linklist.prepend(30);//0
+linklist.prepend(10); //2
+linklist.prepend(20); //1
+linklist.prepend(30); //0
 
-linklist.insert(2, 100)
+linklist.insert(2, 100);
 
 linklist.print();
